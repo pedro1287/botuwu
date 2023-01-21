@@ -2,13 +2,13 @@
   - name: botnube
     databaseName: botnube
     user: botnube
-services:
+services:{0}
  - type: pserv
    name: pgbouncer
    env: docker
    plan: standard
    repo: https://github.com/render-oss/docker-pgbouncer
-   envVars:
+   envVars:{0}
    - 
 
        name: botnube
