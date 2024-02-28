@@ -611,7 +611,7 @@ def onmessage(update,bot:ObigramClient):
                 if result == 0: 
                     print ("Puerto abierto!")
                     print (f"Puerto: {port}")  
-                    proxy = f'152.206.139.117:{port}'
+                    proxy = f'152.206.119.17:{port}'
                     proxy_new = S5Crypto.encrypt(f'{proxy}')
                     msg = 'Su nuevo proxy es:\n\nsocks5://' + proxy_new
                     bot.sendMessage(update.message.chat.id,msg)
