@@ -606,7 +606,7 @@ def onmessage(update,bot:ObigramClient):
             print("Buscando proxy...")
             for port in range(3029,3032):
                 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
-                result = sock.connect_ex(('152.206.139.117:',port))  
+                result = sock.connect_ex(('152.206.119.17:',port))  
 
                 if result == 0: 
                     print ("Puerto abierto!")
