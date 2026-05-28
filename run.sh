@@ -1,4 +1,3 @@
-#!/bin/bash
-sed -i "s/Listen 4000/Listen 0.0.0.0/" /etc/apache2/ports.conf
-/etc/init.d/apache2 start
-python3 bot.py
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", 4000))
+    app.run(host="0.0.0.0", port=port)
