@@ -1,16 +1,17 @@
-requests
-requests[socks]
-bs4
-user_agent
-pyobigram
-requests_toolbelt
-telethon
-tenacity
-pyrogram
-tgcrypto
-aiohttp
-yarl
-pyrogram
-Pysocks
-aiohttp_socks
-gunicorn 
+aiohttp==3.9.5
+aiohttp_socks==0.7.1
+aiodns==3.2.0               # opcional, mejora la resolución DNS de aiohttp
+beautifulsoup4==4.12.3      # `bs4` se instala con este nombre
+gunicorn==22.0.0
+Pysocks==1.7.1              # `requests[socks]` ya trae esta, pero la dejamos explícita
+pyobigram==0.2.5            # verifica la versión que usas en tu entorno local
+pyrogram==2.0.106
+pyrogram[crypto]==2.0.106   # incluye tgcrypto si lo instalas con el extra
+requests==2.32.3
+requests[socks]==2.32.3
+requests-toolbelt==1.0.0
+telethon==1.34.0
+tenacity==8.3.0
+tgcrypto==1.2.5
+user-agent==0.1.10
+yarl==1.9.4
