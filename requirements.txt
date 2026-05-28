@@ -4,7 +4,7 @@ aiodns==3.2.0               # opcional, mejora la resolución DNS de aiohttp
 beautifulsoup4==4.12.3      # `bs4` se instala con este nombre
 gunicorn==22.0.0
 Pysocks==1.7.1              # `requests[socks]` ya trae esta, pero la dejamos explícita
-pyobigram==0.2.5            # verifica la versión que usas en tu entorno local
+pyobigram==2.1.0          # verifica la versión que usas en tu entorno local
 pyrogram==2.0.106
 pyrogram[crypto]==2.0.106   # incluye tgcrypto si lo instalas con el extra
 requests==2.32.3
