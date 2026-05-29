@@ -1,0 +1,21 @@
+python
+import socket
+
+# Crear un socket
+servidor_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# Enlazar el socket a 0.0.0.0 en el puerto 1000
+servidor_socket.bind(('0.0.0.0', 1000))
+
+# Escuchar conexiones entrantes
+servidor_socket.listen(5)
+
+print("Esperando conexiones en 0.0.0.0:1000...")
+
+while True:
+    # Aceptar una conexión
+    cliente_socket, direccion = servidor_socket.accept()
+    print(f"Conexión aceptada de {direccion}")
+    # Aquí puedes manejar la conexión con el cliente
+    cliente_socket.close()
+```
