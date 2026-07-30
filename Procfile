@@ -1,1 +1,1 @@
-phyton3. main.py
+phyton3 main.py
