@@ -1,1 +1,1 @@
-phyton3 main.py
+bot: phyton main.py
