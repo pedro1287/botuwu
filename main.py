@@ -44,7 +44,26 @@ def run_flask():
     app.run(host="0.0.0.0", port=port)
 # =========================================================
 
+# =========================================================
+# 🚀 ARRANQUE DEL BOT Y SERVIDOR
+# =========================================================
+if __name__ == '__main__':
+    # 1. Iniciar el servidor web de Flask en segundo plano (para que Render no mate el proceso)
+    server_thread = threading.Thread(target=run_flask)
+    server_thread.daemon = True
+    server_thread.start()
 
+    # 2. Inicializar y correr tu bot ObigramClient
+    # Se recomienda obtener el Token desde las Variables de Entorno de Render
+    bot_token = os.getenv("BOT_TOKEN", "TU_TOKEN_AQUI_SI_NO_USAS_ENV")
+    
+    print("Iniciando Bot en Render...")
+    bot = ObigramClient(bot_token)
+    
+    # Aquí va la función para arrancar el polling de pyobigram
+    # (Asegúrate de que coincida con cómo inicia tu script original, ej: bot.run() o bot.run_as_thread())
+    bot.run()
+    
 def sign_url(token: str, url: URL):
     query: dict = dict(url.query)
     query["token"] = token
@@ -995,22 +1014,4 @@ if __name__ == '__main__':
         main()
     except:
         main()
-        # =========================================================
-# 🚀 ARRANQUE DEL BOT Y SERVIDOR
-# =========================================================
-if __name__ == '__main__':
-    # 1. Iniciar el servidor web de Flask en segundo plano (para que Render no mate el proceso)
-    server_thread = threading.Thread(target=run_flask)
-    server_thread.daemon = True
-    server_thread.start()
-
-    # 2. Inicializar y correr tu bot ObigramClient
-    # Se recomienda obtener el Token desde las Variables de Entorno de Render
-    bot_token = os.getenv("BOT_TOKEN", "TU_TOKEN_AQUI_SI_NO_USAS_ENV")
-    
-    print("Iniciando Bot en Render...")
-    bot = ObigramClient(bot_token)
-    
-    # Aquí va la función para arrancar el polling de pyobigram
-    # (Asegúrate de que coincida con cómo inicia tu script original, ej: bot.run() o bot.run_as_thread())
-    bot.run()
+        
