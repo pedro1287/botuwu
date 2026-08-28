@@ -993,7 +993,7 @@ if __name__ == '__main__':
 
     # 2. Inicializar y correr tu bot ObigramClient
     # Se recomienda obtener el Token desde las Variables de Entorno de Render
-    bot_token = os.getenv("BOT_TOKEN", "TU_TOKEN_AQUI_SI_NO_USAS_ENV")
+    bot_token = os.getenv("BOT_TOKEN", "6442307089:AAEOqZyy7xiAhxSoynufNIkam-M7gnT28hI")
     
     print("Iniciando Bot en Render...")
     bot = ObigramClient(bot_token)
