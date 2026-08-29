@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: bot-telegram-moodle
+    env: python
+    region: oregon # O la región de tu preferencia
+    plan: free
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.12
+      - key: BOT_TOKEN
+        sync: false
