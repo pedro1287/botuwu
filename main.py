@@ -26,6 +26,27 @@ from yarl import URL
 import re
 from draft_to_calendar import send_calendar
   
+import os
+import threading
+from flask import Flask
+
+# --- INICIO DEL SERVIDOR WEB PARA RENDER ---
+app = Flask(__name__)
+
+@app.route('/')
+def health_check():
+    return "Bot en línea", 200
+
+def start_flask():
+    # Render asigna automáticamente el puerto en la variable PORT
+    port = int(os.environ.get("PORT", 4000))
+    app.run(host="0.0.0.0", port=port)
+
+# Iniciar Flask inmediatamente en un hilo separado
+threading.Thread(target=start_flask, daemon=True).start()
+# -------------------------------------------
+
+# A partir de aquí va el resto de tu código normal...
 def sign_url(token: str, url: URL):
     query: dict = dict(url.query)
     query["token"] = token
