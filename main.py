@@ -18,7 +18,7 @@ def home():
     return "Bot en línea", 200
 
 def start_server():
-    port = int(os.environ.get("PORT", 8080))
+    port = int(os.environ.get("PORT", 4000))
     app.run(host="0.0.0.0", port=port)
 
 threading.Thread(target=start_server, daemon=True).start()
