@@ -1,3 +1,70 @@
+import os
+import sys
+import threading
+import asyncio
+import time
+from flask import Flask
+
+# 1. SOLUCIÓN ASYNCIO PARA PYROGRAM
+try:
+    loop = asyncio.get_event_loop()
+except RuntimeError:
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+
+# 2. SERVIDOR FLASK (REQUERIDO POR RENDER PARA ABRIR EL PUERTO)
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "¡El Bot está activo y ejecutándose en Render! 🚀", 200
+
+def start_flask():
+    port = int(os.environ.get("PORT", 4000))
+    app.run(host="0.0.0.0", port=port)
+
+# Iniciar servidor web Flask de inmediato en un hilo separado
+threading.Thread(target=start_flask, daemon=True).start()
+
+# 3. IMPORTACIONES DE TU BOT
+from pyobigram.client import ObigramClient
+from pyobigram.utils import sizeof_fmt, get_file_size, createID, nice_time
+from MoodleClient import MoodleClient
+from JDatabase import JsonDatabase
+import zipfile
+import infos
+import xdlink
+import mediafire
+import datetime
+from draft_to_calendar import send_calendar
+
+# -------------------------------------------------------------
+# AQUÍ VAN TODAS TUS FUNCIONES (downloadFile, uploadFile, processUploadFiles, etc.)
+# -------------------------------------------------------------
+
+# 4. BUCLE DE ARRANQUE Y MANTENIMIENTO DEL PROCESO
+if __name__ == '__main__':
+    print("Iniciando el Bot de Telegram...")
+    
+    # Obtiene el Token desde las variables de Render
+    bot_token = os.getenv("BOT_TOKEN", "TU_TOKEN_SI_NO_USAS_ENV")
+    
+    # Inicializar el cliente
+    bot = ObigramClient(bot_token)
+    
+    # AQUÍ VAN TUS HANDLERS/COMANDOS DEL BOT (Si tienes)
+    
+    print("Servidor web iniciado y Bot escuchando eventos correctamente.")
+    
+    # Iniciar el bot y mantener el script en ejecución continua
+    try:
+        bot.run()
+    except Exception as e:
+        print(f"Error en el bot: {e}")
+        # En caso de que bot.run() termine, mantenemos el proceso vivo con un bucle infinito
+        while True:
+            time.sleep(3600)
+          
 from cProfile import run
 import pstats
 from pyobigram.utils import sizeof_fmt,get_file_size,createID,nice_time
