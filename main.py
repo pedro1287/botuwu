@@ -1000,4 +1000,8 @@ if __name__ == '__main__':
         main()
     except:
         main()
+        if __name__ == '__main__':
+    print("Iniciando bot de Telegram...")
+    # Asegúrate de llamar a bot.run() para procesar los mensajes
+    bot.run()
         
