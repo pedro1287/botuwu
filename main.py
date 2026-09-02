@@ -14,7 +14,7 @@ import datetime
 import time
 
 import NexCloudClient
-from pydownloader.downloader import downloader
+
 import ProxyCloud
 import socket
 import tlmedia
