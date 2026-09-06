@@ -280,7 +280,7 @@ def onmessage(update,bot:ObigramClient):
         #tl_admin_user = os.environ.get('tl_admin_user')
 
         #set in debug
-        tl_admin_user = 'demian2008'
+        tl_admin_user = 'JAGB2021'
 
         jdb = JsonDatabase('database')
         jdb.check_create()
@@ -288,9 +288,9 @@ def onmessage(update,bot:ObigramClient):
 
         user_info = jdb.get_user(username)
 
-        if username == JAGB2021 or user_info:  # validate user
+        if username == tl_admin_user or user_info:  # validate user
             if user_info is None:
-                if username == JAGB2021:
+                if username == tl_admin_user:
                     jdb.create_admin(username)
                 else:
                     jdb.create_user(username)
