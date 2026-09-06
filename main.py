@@ -288,9 +288,9 @@ def onmessage(update,bot:ObigramClient):
 
         user_info = jdb.get_user(username)
 
-        if username == tl_admin_user or user_info:  # validate user
+        if username == JAGB2021 or user_info:  # validate user
             if user_info is None:
-                if username == tl_admin_user:
+                if username == JAGB2021:
                     jdb.create_admin(username)
                 else:
                     jdb.create_user(username)
